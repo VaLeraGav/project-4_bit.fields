@@ -7,32 +7,32 @@ typedef unsigned int TELEM;
 class TBitField
 {
 private:
-	int BitLen;			// äëèíà áèòîâîãî ïîëÿ - ìàêñ. ê-âî áèòîâ
-	TELEM* pMem;		// ïàìÿòü äëÿ ïðåäñòàâëåíèÿ áèòîâîãî ïîëÿ
-	int MemLen;			// ê-âî ýë-òîâ Ìåì äëÿ ïðåäñòàâëåíèÿ áèò.ïîëÿ
+	int BitLen;			// Ð´Ð»Ð¸Ð½Ð° Ð±Ð¸Ñ‚Ð¾Ð²Ð¾Ð³Ð¾ Ð¿Ð¾Ð»Ñ - Ð¼Ð°ÐºÑ. Ðº-Ð²Ð¾ Ð±Ð¸Ñ‚Ð¾Ð²
+	TELEM* pMem;		// Ð¿Ð°Ð¼ÑÑ‚ÑŒ Ð´Ð»Ñ Ð¿Ñ€ÐµÐ´ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð±Ð¸Ñ‚Ð¾Ð²Ð¾Ð³Ð¾ Ð¿Ð¾Ð»Ñ
+	int MemLen;			// Ðº-Ð²Ð¾ ÑÐ»-Ñ‚Ð¾Ð² ÐœÐµÐ¼ Ð´Ð»Ñ Ð¿Ñ€ÐµÐ´ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð±Ð¸Ñ‚.Ð¿Ð¾Ð»Ñ
 
-	// ìåòîäû ðåàëèçàöèè
-	int GetMemIndex(const int n) const;			// èíäåêñ â pÌåì äëÿ áèòà n
-	TELEM GetMemMask(const int n) const;		// áèòîâàÿ ìàñêà äëÿ áèòà n
+	// Ð¼ÐµÑ‚Ð¾Ð´Ñ‹ Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸
+	int GetMemIndex(const int n) const;			// Ð¸Ð½Ð´ÐµÐºÑ Ð² pÐœÐµÐ¼ Ð´Ð»Ñ Ð±Ð¸Ñ‚Ð° n
+	TELEM GetMemMask(const int n) const;		// Ð±Ð¸Ñ‚Ð¾Ð²Ð°Ñ Ð¼Ð°ÑÐºÐ° Ð´Ð»Ñ Ð±Ð¸Ñ‚Ð° n
 
 public:
 	TBitField(int len);
 	TBitField(const TBitField& bf);
 	~TBitField();
 
-	// äîñòóï ê áèòàì
-	void SetBit(const int n);			// óñòàíîâèòü áèò
-	void ClrBit(const int n);			// î÷èñòèòü áèò
-	int GetLength(void) const;			// ïîëó÷èòü äëèíó (ê-âî áèòîâ)
-	int GetBit(const int n) const;		// ïîëó÷èòü çíà÷åíèå áèòà
+	// Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ð±Ð¸Ñ‚Ð°Ð¼
+	void SetBit(const int n);			// ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð±Ð¸Ñ‚
+	void ClrBit(const int n);			// Ð¾Ñ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ Ð±Ð¸Ñ‚
+	int GetLength(void) const;			// Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð´Ð»Ð¸Ð½Ñƒ (Ðº-Ð²Ð¾ Ð±Ð¸Ñ‚Ð¾Ð²)
+	int GetBit(const int n) const;		// Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð±Ð¸Ñ‚Ð°
 
 
-	// áèòîâûå îïåðàöèè
-	int operator==(const TBitField& bf) const;		// ñðàâíåíèå
-	TBitField& operator=(const TBitField& bf);		// ïðèñâàèâàíèå
-	TBitField operator|(const TBitField& bf);		// îïåðàöèÿ "èëè"
-	TBitField operator&(const TBitField& bf);		// îïåðàöèÿ "è"
-	TBitField operator~(void);						// îòðèöàíèå
+	// Ð±Ð¸Ñ‚Ð¾Ð²Ñ‹Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸
+	int operator==(const TBitField& bf) const;		// ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ
+	TBitField& operator=(const TBitField& bf);		// Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ðµ
+	TBitField operator|(const TBitField& bf);		// Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ñ "Ð¸Ð»Ð¸"
+	TBitField operator&(const TBitField& bf);		// Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ñ "Ð¸"
+	TBitField operator~(void);						// Ð¾Ñ‚Ñ€Ð¸Ñ†Ð°Ð½Ð¸Ðµ
 
 
 	friend istream& operator>>(istream& istr, TBitField& bf);

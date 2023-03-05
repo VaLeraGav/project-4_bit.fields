@@ -6,28 +6,28 @@ using namespace std;
 class TSet
 {
 private:
-	int MaxPower;					// ìàêñèìàëüíàÿ ìîùíîñòü ìíîæåñòâà
-	TBitField BitField;				// áèòîâîå ïîëå äëÿ õðàíåíèÿ õàð-ãî âåêòîðà
+	int MaxPower;					// Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð¼Ð¾Ñ‰Ð½Ð¾ÑÑ‚ÑŒ Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð°
+	TBitField BitField;				// Ð±Ð¸Ñ‚Ð¾Ð²Ð¾Ðµ Ð¿Ð¾Ð»Ðµ Ð´Ð»Ñ Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ Ñ…Ð°Ñ€-Ð³Ð¾ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð°
 public:
 	TSet(int mp);
-	TSet(const TSet& s);					// êîíñòðóêòîð êîïèðîâàíèÿ
-	TSet(const TBitField& bf);				// êîíñòðóêòîð ïðåîáðàçîâàíèÿ òèïà
-	operator TBitField();					// ïðåîáðàçîâàíèå òèïà ê áèòîâîìó ïîëþ
+	TSet(const TSet& s);					// ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ
+	TSet(const TBitField& bf);				// ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð¿Ñ€ÐµÐ¾Ð±Ñ€Ð°Ð·Ð¾Ð²Ð°Ð½Ð¸Ñ Ñ‚Ð¸Ð¿Ð°
+	operator TBitField();					// Ð¿Ñ€ÐµÐ¾Ð±Ñ€Ð°Ð·Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð¸Ð¿Ð° Ðº Ð±Ð¸Ñ‚Ð¾Ð²Ð¾Ð¼Ñƒ Ð¿Ð¾Ð»ÑŽ
 
-	// äîñòóï ê áèòàì	
-	int GetMaxPower(void) const;		// ìàêñèìàëüíàÿ ìîùíîñòü ìíîæåñòâà
-	void InsElem(const int n);			// âêëþ÷èòü ýëåìåíò â ìíîæåñòâî
-	void DelElem(const int n);			// óäàëèòü ýëåìåíò èç ìíîæåñòâà
-	int IsMember(const int n) const;	// ïðîâåðèòü íàëè÷èå ýëåìåíòà â ìíîæåñòâå
+	// Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ð±Ð¸Ñ‚Ð°Ð¼
+	int GetMaxPower(void) const;		// Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð¼Ð¾Ñ‰Ð½Ð¾ÑÑ‚ÑŒ Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð°
+	void InsElem(const int n);			// Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð¾
+	void DelElem(const int n);			// ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¸Ð· Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð°
+	int IsMember(const int n) const;	// Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ Ð½Ð°Ð»Ð¸Ñ‡Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð² Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ðµ
 
-	// òåîðåòèêî-ìíîæåñòâåííûå îïåðàöèè
-	int operator== (const TSet& s)const;	// ñðàâíåíèå
-	TSet& operator=(const TSet& s);			// ïðèñâàèâàíèå
-	TSet operator+ (const int n);			// âêëþ÷åíèå ýëåìåíòà â ìíîæåñòâî
-	TSet operator- (const int n);			// óäàëåíèå ýëåìåíòà èç ìíîæåñòâà
-	TSet operator+ (const TSet& s);			// îáúåäèíåíèå
-	TSet operator* (const TSet& s);			// ïåðåñå÷åíèå
-	TSet operator~ (void);					// äîïîëíåíèå
+	// Ñ‚ÐµÐ¾Ñ€ÐµÑ‚Ð¸ÐºÐ¾-Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²ÐµÐ½Ð½Ñ‹Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸
+	int operator== (const TSet& s)const;	// ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ
+	TSet& operator=(const TSet& s);			// Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ðµ
+	TSet operator+ (const int n);			// Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð² Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð¾
+	TSet operator- (const int n);			// ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð¸Ð· Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð°
+	TSet operator+ (const TSet& s);			// Ð¾Ð±ÑŠÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ðµ
+	TSet operator* (const TSet& s);			// Ð¿ÐµÑ€ÐµÑÐµÑ‡ÐµÐ½Ð¸Ðµ
+	TSet operator~ (void);					// Ð´Ð¾Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ
 
 	friend istream& operator>>(istream& istr, TSet& bf);
 	friend ostream& operator<<(ostream& ostr, const TSet& bf);
